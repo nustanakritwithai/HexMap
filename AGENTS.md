@@ -1,22 +1,48 @@
 # HexMap Agent Contract
 
-This repository implements SUPERHEX-37 Tactical RPG Architecture V2.
+This repository implements **SUPERHEX-37 Tactical RPG Architecture V2**.
+
+Canonical references:
+- `docs/architecture-v2.md`
+- `docs/golden-tests.md`
+
+If this file conflicts with the canonical architecture, surface the conflict and follow `docs/architecture-v2.md`.
 
 ## Locked rules
 
 - Exactly 37 Core Hexes: radius 3, rows 4-5-6-7-6-5-4.
-- Exactly 90 internal shared edges, 42 outer boundary edges, and 96 logical junction anchors.
+- Exactly 90 internal shared Edges, 42 outer boundary Edges, and 96 logical Junction Anchors.
 - Persistent world identity uses semantic anchors. Runtime navigation nodes are derived/disposable.
-- Gameplay authority must not depend on pixels or float equality. Use canonical integer/fixed-point data.
+- Gameplay authority must not depend on pixels or float equality.
 - Visual contact does not imply navigation connectivity.
-- Do not silently increase the Core Hex count to gain tactical detail.
+- Do not increase the Core Hex count to gain tactical detail.
 - Every durable rule change requires deterministic tests.
-- UNKNOWN != PASS. Never claim PASS without executed evidence.
+- `UNKNOWN != PASS`. Never claim PASS without executed evidence.
+
+## Proven baseline
+
+M01 / G00 Geometry Foundation is proven and locked:
+- 37 Core
+- 90 Internal Edges
+- 42 Boundary Edges
+- 96 Junction Anchors
+- stable semantic IDs
+- integer/fixed-point geometry authority
+- deterministic state hash
+- validator and CI evidence
+
+Any geometry-affecting change must rerun G00 and preserve the locked counts and semantic-ID contract.
 
 ## Current phase boundary
 
-Phase 1 only: Geometry Foundation. Do not add advanced lanes, tactical AI, fog, destruction, or network traversal until the geometry gate is proven.
+**Phase 2 — Core Terrain** is the next implementation phase.
 
-## Required evidence before Phase 2
+Allowed next scope:
+- Grass
+- Forest
+- Swamp
+- Mountain
+- Ruins
+- terrain-owned movement data
 
-G00 must prove 37/90/42/96, center C:0,0, radius-3 validity, unique canonical IDs, deterministic snapshot/hash, and validator PASS in CI.
+Do not jump to advanced lanes, tactical AI, Fog of War, destruction, or advanced network traversal before their preceding phase gates are proven.
