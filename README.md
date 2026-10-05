@@ -1,25 +1,27 @@
 # HexMap — SUPERHEX-37
 
-Reference implementation and playable geometry prototype for the SUPERHEX-37 Tactical RPG Architecture V2.
+Reference implementation and playable prototype for the SUPERHEX-37 Tactical RPG Architecture V2.
 
 Live target: https://nustanakritwithai.github.io/HexMap/
 
-## Current milestone
+## Proven baseline
 
-**M01 — Geometry Foundation / G00 Blank-37**
+**M01 — Geometry Foundation / G00 Blank-37: PASS**
 
 Locked geometry:
+- 37 Core Hexes
+- 90 Internal Edges
+- 42 Boundary Edges
+- 96 Logical Junction Anchors
+- Radius 3
+- Center `C:0,0`
+- deterministic G00 state hash `817c3a7a`
 
-| Metric | Required |
-| --- | ---: |
-| Core Hexes | 37 |
-| Internal Edges | 90 |
-| Boundary Edges | 42 |
-| Logical Junction Anchors | 96 |
-| Radius | 3 |
-| Center | `C:0,0` |
+## Current development phase
 
-The browser prototype renders the canonical map, debug overlays, stable IDs, counts, a runtime validator, and a deterministic state hash.
+**Phase 2 — Core Terrain**
+
+The next scope is Grass, Forest, Swamp, Mountain, Ruins, and terrain-owned movement data. Higher phases remain gated by the canonical architecture.
 
 ## Verify
 
@@ -27,10 +29,18 @@ The browser prototype renders the canonical map, debug overlays, stable IDs, cou
 npm test
 ```
 
-GitHub Actions runs the same deterministic G00 checks on `main` and pull requests.
+GitHub Actions also runs:
+- deterministic G00 geometry tests
+- static entrypoint verification
+- headless-Chrome browser smoke against the site
+
+## Canonical references
+
+- `AGENTS.md`
+- `docs/architecture-v2.md`
+- `docs/golden-tests.md`
+- `docs/STATUS.md`
 
 ## Engineering policy
 
-**UNKNOWN != PASS.** A feature is not considered proven until the relevant deterministic test actually runs and verifies the expected result.
-
-See `AGENTS.md`, `docs/architecture-v2.md`, `docs/golden-tests.md`, and `docs/STATUS.md`.
+**UNKNOWN != PASS.** Source presence or visual plausibility is not execution evidence.
