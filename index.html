@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <title>SUPERHEX-37 Geometry Proof</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">HexMap / Phase 1</p>
+      <h1>SUPERHEX-37 Geometry Proof</h1>
+    </div>
+    <div class="status-box">
+      <span>Runtime validator</span>
+      <strong id="overall-status">UNKNOWN</strong>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="map-card" aria-label="SUPERHEX-37 map">
+      <div class="toolbar" role="group" aria-label="Debug overlays">
+        <label><input id="toggle-core-ids" type="checkbox" checked> Core IDs</label>
+        <label><input id="toggle-edge-ids" type="checkbox"> Edge IDs</label>
+        <label><input id="toggle-junctions" type="checkbox" checked> Junctions</label>
+        <label><input id="toggle-junction-ids" type="checkbox"> Junction IDs</label>
+        <label><input id="toggle-boundary" type="checkbox" checked> Boundary</label>
+      </div>
+      <div class="map-wrap">
+        <svg id="map" viewBox="0 0 1000 820" role="img" aria-label="37 core hex battlefield"></svg>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <section>
+        <p class="eyebrow">Canonical counts</p>
+        <div class="metrics">
+          <article><strong id="count-cores">—</strong><span>Core Hexes</span><small>expected 37</small></article>
+          <article><strong id="count-internal">—</strong><span>Internal Edges</span><small>expected 90</small></article>
+          <article><strong id="count-boundary">—</strong><span>Boundary Edges</span><small>expected 42</small></article>
+          <article><strong id="count-junctions">—</strong><span>Junction Anchors</span><small>expected 96</small></article>
+        </div>
+      </section>
+
+      <section class="inspector-section">
+        <p class="eyebrow">Inspector</p>
+        <div id="inspector" class="inspector">
+          <strong>แตะ Core</strong>
+          <span>เพื่อดู Semantic Anchor</span>
+        </div>
+      </section>
+
+      <section>
+        <p class="eyebrow">G00 runtime checks</p>
+        <ul id="checks" class="checks"></ul>
+      </section>
+
+      <section class="hash-row">
+        <span>State hash</span>
+        <code id="state-hash">—</code>
+      </section>
+      <p class="note">Runtime PASS แสดงว่า geometry ที่เปิดอยู่ผ่าน validator ในเบราว์เซอร์ ส่วน Engineering PASS ต้องอาศัย CI/Golden Test evidence ด้วย — UNKNOWN ≠ PASS.</p>
+    </aside>
+  </main>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
